@@ -140,7 +140,7 @@ def create_interface():
     with OpenMonkeyPatch():
         shared.gradio['interface'].launch(
             prevent_thread_lock=True,
-            share=True,
+            share=False,
             server_name='127.0.0.1',
             server_port=int(os.getenv('CDSW_APP_PORT')) ,
             inbrowser=shared.args.auto_launch,
