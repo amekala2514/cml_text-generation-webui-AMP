@@ -141,8 +141,8 @@ def create_interface():
         shared.gradio['interface'].launch(
             prevent_thread_lock=True,
             share=True,
-            server_name=None if not shared.args.listen else (shared.args.listen_host or '0.0.0.0'),
-            server_port=shared.args.listen_port,
+            server_name='127.0.0.1',
+            server_port=int(os.getenv('CDSW_APP_PORT')) ,
             inbrowser=shared.args.auto_launch,
             auth=auth or None,
             ssl_verify=False if (shared.args.ssl_keyfile or shared.args.ssl_certfile) else True,
